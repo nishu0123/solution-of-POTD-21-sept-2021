@@ -1,0 +1,35 @@
+//here i am sharing the code of POTD 21 sept 2021
+int maxCandy(int height[], int n) 
+    { 
+    // i thanks to my friend raushan 
+    //he have the approach probably  the best approach . here we have to maximise the height and the width
+    //(both ) one observation is that breath (index ) we have in order as
+    // element are  in array .so we have to work for the maximising the height
+    //we will use the two pointer one at the index 0 of the array and second at the 
+    //end of the arrya , according to the condition we will move the pointer
+    
+    int maxCandy(int height[], int n) 
+    { 
+    int i;
+    int l =0;
+    int r = n-1;
+    int value = 0;
+    int ans = INT_MIN;
+    while(r > l)
+    {
+        value = min(height[l], height[r])*(r-l-1);
+        ans = max(ans, value);
+        if(height[l] > height[r])
+        {
+            r--;
+        }
+        else{
+            l++;
+        }
+    }
+    if(n == 1)
+    {
+        return 0;
+    }
+    return ans;
+    }
